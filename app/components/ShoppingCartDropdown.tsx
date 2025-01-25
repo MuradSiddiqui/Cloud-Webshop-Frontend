@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import {
   DropdownMenu,
@@ -10,8 +11,11 @@ import {
 import { ShoppingCartIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import useCartStore from "../useCartStore";
 
 const ShoppingCartDropdown = () => {
+  const {getCartItems} = useCartStore();
+  console.log("Cart Data : ",getCartItems()) 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="relative outline-none">

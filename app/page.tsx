@@ -4,11 +4,12 @@ import ProductsGrid from "./components/ProductsGrid";
 // import { CoverDemo } from "./components/Cover";
 import { Slider } from "./components/Slider";
 import CategoriesCarousel from "./components/CategoriesCarousel";
-import { getProducts } from "./hooks";
+import { getCategories, getProducts } from "./hooks";
 
 
 export default async function Home() {
-    const productData = await getProducts()
+    const productData = await getProducts();
+    const categories = await getCategories();
     // .then((res) => res.json())
     // .then((data) => {
     //   // do something with data
@@ -27,7 +28,7 @@ export default async function Home() {
         </div>
         <div className="mt-20">
           <h1 className="text-2xl cursor-default">Categories</h1>
-          <CategoriesCarousel />
+          <CategoriesCarousel categories = {categories} />
         </div>
         <div className="mt-20">
           <h1 className="text-2xl cursor-default">New Products</h1>

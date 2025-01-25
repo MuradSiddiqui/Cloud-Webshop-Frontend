@@ -2,7 +2,7 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import { getProducts, getProductsByParams } from "../hooks";
 
-const ProductsGrid = async({searchParams} : {searchParams : any}) => {
+const ProductsGrid = async({searchParams} : {searchParams? : any}) => {
   const params = await searchParams;
   console.log("Params",params)
   let productData;

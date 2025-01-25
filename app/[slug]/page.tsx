@@ -1,6 +1,8 @@
 
 import { getProductById } from "../hooks";
 import Image from "next/image";
+import useCartStore from '../useCartStore'
+import BuyButton from "../components/BuyButton";
 
 const SinglePage = async ({
   params,
@@ -9,6 +11,7 @@ const SinglePage = async ({
 }) => {
   const { slug } = await params;
   const data = await getProductById(slug);
+
  
   return (
     <div className="flex w-full container-p gap-x-8 my-8">
@@ -29,6 +32,7 @@ const SinglePage = async ({
               <h3 className="font-semibold text-2xl">
                  ${data.price}
               </h3>
+              <BuyButton data={data}/>
            
           
         </div>
