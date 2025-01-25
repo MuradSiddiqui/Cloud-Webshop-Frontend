@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
       },{
         protocol: "https",
         hostname: "www.agnoulitahats.com"
+      },
+      { 
+        protocol: 'https', 
+        hostname: 'webshop-images-068c8dbe-0170-4368-80e8-0e7519d4a43e.s3.amazonaws.com/**' 
       }
     ]
   }
