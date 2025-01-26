@@ -11,7 +11,8 @@ const useCartStore = create((set, get) => ({
     
     if(!alreadyExists)
     {
-        set((state ) => ({
+      item.quantity = 1  
+      set((state ) => ({
             cartItems: [...state.cartItems, item],
           }))
     }

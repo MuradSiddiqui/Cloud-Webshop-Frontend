@@ -5,7 +5,7 @@ import ShoppingCartDropdown from "./ShoppingCartDropdown";
 const NavIcons = () => {
   return (
     <div className="flex items-center gap-x-2 text-xs">
-      <UserProfileDropdown />
+      {/* <UserProfileDropdown /> */}
 
       <ShoppingCartDropdown />
     </div>

@@ -12,11 +12,15 @@ import { ShoppingCartIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import useCartStore from "../useCartStore";
+import RemoveButton from "./RemoveButton";
+import CheckoutButton from "./CheckoutButton";
 
 const ShoppingCartDropdown = () => {
-  const { getCartItems,removeFromCart } = useCartStore();
+  const { getCartItems } = useCartStore();
   const cartData = getCartItems();
   console.log("Cart Data : ", getCartItems());
+  let totalPrice = 0;
+  cartData.map((x: any) => (totalPrice += x.price * x.quantity));
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="relative outline-none">
@@ -33,47 +37,48 @@ const ShoppingCartDropdown = () => {
         <DropdownMenuSeparator />
         <div className="flex flex-col gap-4 mb-3">
           {cartData.map((x: any) => {
-            <div className="flex gap-2">
-              <Image
-                src={
-                 x.images_url || "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hhaXJ8ZW58MHx8MHx8fDA%3D"
-                }
-                alt="Picture"
-                width={72}
-                height={96}
-                className="object-cover rounded-md"
-              />
-              <div className="flex flex-col flex-1 justify-between">
-                <div className="flex items-center justify-between">
-                  <p className="text-sm font-semibold">{x.name}</p>
-                  <p className="text-sm ">{x.price}</p>
-                </div>
+            return (
+              <div key={x.id} className="flex gap-2">
+                <Image
+                  src={
+                    x.image_url ||
+                    "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hhaXJ8ZW58MHx8MHx8fDA%3D"
+                  }
+                  alt="Picture"
+                  width={72}
+                  height={96}
+                  className="object-cover rounded-md"
+                />
+                <div className="flex flex-col flex-1 justify-between">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-semibold">{x.name}</p>
+                    <p className="text-sm ">{x.price}</p>
+                  </div>
 
-                <div className="flex items-center justify-between">
-                  <p className="text-xs text-gray-500">${x.quantity}</p>
-                  <p className="text-xs text-blue-500 cursor-pointer" onClick={removeFromCart(x.id)}>Remove</p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs text-gray-500">Qty : {x.quantity}</p>
+                    <RemoveButton id={x.id} />
+                  </div>
                 </div>
               </div>
-            </div>;
+            );
           })}
         </div>
         <div>
           <div className="flex justify-between font-bold text-sm">
             <h3>Subtotal</h3>
-            <h3>$0</h3>
+            <h3>${totalPrice}</h3>
           </div>
 
           <p className="text-xs text-gray-500 py-2">
             Shipping and taxes calculated at checkout.
           </p>
 
-          <div className="flex items-center justify-between ">
-            <Button variant={"secondary"} size={"sm"}>
+          <div className="flex items-center justify-end ">
+            {/* <Button variant={"secondary"} size={"sm"}>
               View Cart
-            </Button>
-            <Button className="relative" size={"sm"}>
-              Checkout
-            </Button>
+            </Button> */}
+            <CheckoutButton />
           </div>
         </div>
       </DropdownMenuContent>

@@ -27,18 +27,18 @@ const Header = () => {
       title: "Shop",
       path: "/list",
     },
-    {
-      title: "Deals",
-      path: "/deals",
-    },
-    {
-      title: "About",
-      path: "/about",
-    },
-    {
-      title: "Contact",
-      path: "/contact",
-    },
+    // {
+    //   title: "Deals",
+    //   path: "/deals",
+    // },
+    // {
+    //   title: "About",
+    //   path: "/about",
+    // },
+    // {
+    //   title: "Contact",
+    //   path: "/contact",
+    // },
   ];
   return (
     <>

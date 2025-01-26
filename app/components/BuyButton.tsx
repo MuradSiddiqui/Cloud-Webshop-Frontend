@@ -1,28 +1,23 @@
-'use client'
-import React from 'react'
-import useCartStore from '../useCartStore';
+"use client";
+import React from "react";
+import useCartStore from "../useCartStore";
+import { Button } from "@/components/ui/button";
 
-const BuyButton = ({data } : {data : any}) => {
-    const { cartItems, addToCart, removeFromCart, getCartItems } = useCartStore();
-    const handleAddItem = () => {
+const BuyButton = ({ data }: { data: any }) => {
+  const { cartItems, addToCart, removeFromCart, getCartItems } = useCartStore();
+  const handleAddItem = async () => {
+    const cart = await getCartItems();
 
-        // const newItem = {
-        //   id: data.id, // Generate a random id
-        //   name: 'T-shirt',
-        //   price: 20,
-        // };
-        addToCart(data);
-      };
-      
-      // Example: Removing items
-      const handleRemoveItem = (id : any) => {
-        removeFromCart(id);
-      };
+    addToCart(data);
+  };
+
   return (
     <div>
-        <button className='p-2 bg-blue-500' onClick={handleAddItem}>Buy</button>
+      <Button size={"sm"} onClick={handleAddItem}>
+        Buy
+      </Button>
     </div>
-  )
-}
+  );
+};
 
-export default BuyButton
+export default BuyButton;

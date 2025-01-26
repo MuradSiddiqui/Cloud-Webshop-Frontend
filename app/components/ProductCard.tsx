@@ -16,13 +16,14 @@ interface ProductDetails {
 }
 
 import React from "react";
+import BuyButton from "./BuyButton";
 
 const ProductCard = ({
   id,name,description,price,category,image_url,stock
 }: {
   id: number,name : string,description : string,price: string,category:number,image_url:string,stock : number
 }) => {
- 
+  const data =  {id,name,description,price,category,image_url,stock}
   return (
     <div>
       <Link href={"/"+id}>
@@ -54,13 +55,7 @@ const ProductCard = ({
         <p className="text-xs text-gray-500 pb-2">
           {description}
         </p>
-        <Button
-          variant={"outline"}
-          size={"sm"}
-          className="hover:bg-primary hover:text-background rounded-2xl font-semibold text-sm"
-        >
-          Add to cart
-        </Button>
+      <BuyButton data={data}/>
       </div>
     </div>
   );
