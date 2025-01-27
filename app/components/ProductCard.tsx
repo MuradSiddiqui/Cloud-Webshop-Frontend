@@ -1,13 +1,3 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { PlusIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
