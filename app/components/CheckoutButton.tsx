@@ -28,7 +28,7 @@ const CheckoutButton = () => {
       console.log("Checkout Items : ", bodyData);
       
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/orders/", {
+        const res = await fetch("https://a7f6x2hcc5.execute-api.eu-central-1.amazonaws.com/dev/api/orders/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

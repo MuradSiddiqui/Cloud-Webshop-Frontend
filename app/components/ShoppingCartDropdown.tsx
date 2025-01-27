@@ -50,9 +50,11 @@ const ShoppingCartDropdown = () => {
                   className="object-cover rounded-md"
                 />
                 <div className="flex flex-col flex-1 justify-between">
-                  <div className="flex items-center justify-between">
-                    <p className="text-sm font-semibold">{x.name}</p>
-                    <p className="text-sm ">{x.price}</p>
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="text-xs font-semibold max-w-[100px]">
+                      {x.name}
+                    </p>
+                    <p className="text-xs ">${x.price}</p>
                   </div>
 
                   <div className="flex items-center justify-between">

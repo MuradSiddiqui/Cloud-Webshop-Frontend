@@ -1,7 +1,6 @@
-
 import { getProductById } from "../hooks";
 import Image from "next/image";
-import useCartStore from '../useCartStore'
+import useCartStore from "../useCartStore";
 import BuyButton from "../components/BuyButton";
 
 const SinglePage = async ({
@@ -12,39 +11,49 @@ const SinglePage = async ({
   const { slug } = await params;
   const data = await getProductById(slug);
 
- 
   return (
     <div className="flex w-full container-p gap-x-8 my-8">
       <div className="w-full lg:w-1/2  relative h-80">
-        <Image fill src={data.image_url} alt="Product Image"/>
+        <Image
+          fill
+          className="object-contain bg-gray-100"
+          src={data.image_url}
+          alt="Product Image"
+        />
       </div>
       <div className="w-full lg:w-1/2 flex flex-col gap-y-4 ">
         <h2 className="text-4xl font-semibold ">{data.name}</h2>
         <hr />
-        <p
-        
-          className="max-h-[200px] overflow-y-scroll"
-        >{data.description}</p>
+        <p className="">{data.description}</p>
         <hr />
         <div className="flex items-center gap-x-4">
-        
-            
-              <h3 className="font-semibold text-2xl">
-                 ${data.price}
-              </h3>
-              <BuyButton data={data}/>
-           
-          
+          <h3 className="font-semibold text-2xl">${data.price}</h3>
+          <BuyButton data={data} />
         </div>
         <div className="text-sm">
-            <h3 className="text-xl font-semibold">Additional Details</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quo minima sit numquam magnam, animi eius iste laudantium labore nobis dolore dicta provident itaque exercitationem expedita! Maxime ab dolore quis facere officiis nihil praesentium. Perspiciatis animi impedit voluptatibus eaque hic, consequatur perferendis blanditiis voluptates, odio officiis cum sit ratione cupiditate</p>
-          </div>
+          <h3 className="text-xl font-semibold">Additional Details</h3>
+          <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quo
+            minima sit numquam magnam, animi eius iste laudantium labore nobis
+            dolore dicta provident itaque exercitationem expedita! Maxime ab
+            dolore quis facere officiis nihil praesentium. Perspiciatis animi
+            impedit voluptatibus eaque hic, consequatur perferendis blanditiis
+            voluptates, odio officiis cum sit ratione cupiditate
+          {/* {data.additionaldetail} */}
+          </p>
+        </div>
 
-          <div className="text-sm my-4">
-            <h3 className="text-xl font-semibold">Shipping Details</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quo minima sit numquam magnam, animi eius iste laudantium labore nobis dolore dicta provident itaque exercitationem expedita! Maxime ab dolore quis facere officiis nihil praesentium. Perspiciatis animi impedit voluptatibus eaque hic, consequatur perferendis blanditiis voluptates, odio officiis cum sit ratione cupiditate</p>
-          </div>
+        <div className="text-sm my-4">
+          <h3 className="text-xl font-semibold">Shipping Details</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quo
+            minima sit numquam magnam, animi eius iste laudantium labore nobis
+            dolore dicta provident itaque exercitationem expedita! Maxime ab
+            dolore quis facere officiis nihil praesentium. Perspiciatis animi
+            impedit voluptatibus eaque hic, consequatur perferendis blanditiis
+            voluptates, odio officiis cum sit ratione cupiditate
+          </p>
+        </div>
       </div>
     </div>
   );

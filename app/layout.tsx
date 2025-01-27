@@ -13,13 +13,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
- 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-[100vh] overflow-x-hidden">
-
+      <body className="min-h-[100vh] overflow-x-hidden  ">
         <Header />
-        {children}
+        <div className="min-h-[calc(100vh-150px)]">{children}</div>
         <Footer />
       </body>
     </html>
