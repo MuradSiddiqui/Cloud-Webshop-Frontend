@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import useCartStore from "./useCartStore";
 export const metadata: Metadata = {
   title: "Zee Store",
-  description: "Built by Zuhayr",
+  description: "Built by Murad Siddiqui",
 };
 
 export default function RootLayout({
