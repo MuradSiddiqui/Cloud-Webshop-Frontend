@@ -24,13 +24,14 @@
     "embla-carousel-react": "^8.5.2",
     "framer-motion": "^11.17.0",
     "lucide-react": "^0.471.0",
-    "next": "15.1.4",
+    "next": "^15.1.6",
     "package": "^1.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
+    "zee-store": "file:",
     "zustand": "^5.0.3"
   },
   "devDependencies": {

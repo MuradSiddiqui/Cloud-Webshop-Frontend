@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import useCartStore from "../useCartStore";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
@@ -7,6 +7,13 @@ import { useRouter } from "next/navigation";
 const CheckoutButton = () => {
     const router = useRouter()
   const { getCartItems } = useCartStore();
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [phone, setPhone] = useState("");
 
   const checkoutFunc = async () => {
     const cartItems = await getCartItems();
@@ -19,9 +26,15 @@ const CheckoutButton = () => {
       });
       
       const bodyData = {
-        customer_name: "John Doe",
-        customer_email: "john.doe@gmail.com",
-        address: "123 Main Street",
+        customer_name: `${firstName} ${lastName}`.trim(),
+        //customer_name: "John Doe",
+        //customer_email: "john.doe@gmail.com",
+        //address: "123 Main Street",
+        //items,
+        customer_email: email.trim(),
+        address: address.trim(),
+        pincode: pincode.trim(),
+        phone: phone.trim(),
         items,
       };
       
@@ -48,9 +61,61 @@ const CheckoutButton = () => {
       }
   };
   return (
-    <Button size={"sm"} onClick={checkoutFunc}>
-      Checkout
-    </Button>
+    <div className="flex gap-8 p-4">
+      {/* Left Side Form */}
+      <div className="w-1/2 p-4 border rounded-lg shadow-md">
+        <h2 className="text-lg font-semibold mb-4">Enter Your Details</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <input
+            type="text"
+            placeholder="First Name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            className="w-full p-2 border rounded"
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            className="w-full p-2 border rounded"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-2 border rounded"
+          />
+          <input
+            type="text"
+            placeholder="Phone Number"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className="w-full p-2 border rounded"
+          />
+          <input
+            type="text"
+            placeholder="Address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            className="w-full p-2 border rounded col-span-2"
+          />
+          <input
+            type="text"
+            placeholder="Pincode"
+            value={pincode}
+            onChange={(e) => setPincode(e.target.value)}
+            className="w-full p-2 border rounded col-span-2"
+          />
+        </div>
+      </div>
+      
+      {/* Right Side Checkout Button */}
+      <div className="w-1/2 flex items-center justify-center">
+        <Button size="sm" onClick={checkoutFunc}>Checkout</Button>
+      </div>
+    </div>
   );
 };
 
