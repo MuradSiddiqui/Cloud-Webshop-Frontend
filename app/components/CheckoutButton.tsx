@@ -15,19 +15,53 @@ const CheckoutButton = () => {
   const [pincode, setPincode] = useState("");
   const [phone, setPhone] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [pinError, setPinError] = useState("");
 
   const validateEmail = (email: string) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   };
 
+  const validatePhone = (phone: string) => {
+    const regex = /^\+49\d{11}$/; // +49 followed by exactly 9 digits (total 12 characters)
+    return regex.test(phone);
+  };
+
+  const validatePin = (pincode: string) => {
+    const regex = /^\d{5}$/; // Exactly 5 digits
+    return regex.test(pincode);
+  };
+
   const checkoutFunc = async () => {
+    let isValid = true;
+
+    // Validate email
     if (!validateEmail(email)) {
       setEmailError("Please enter a valid email address.");
-      return;
+      isValid = false;
     } else {
       setEmailError("");
     }
+
+    // Validate phone number
+    if (!validatePhone(phone)) {
+      setPhoneError("Phone number must start with +49 and be 11 digits long.");
+      isValid = false;
+    } else {
+      setPhoneError("");
+    }
+
+    // Validate pincode
+    if (!validatePin(pincode)) {
+      setPinError("Pincode must be 5 digits long.");
+      isValid = false;
+    } else {
+      setPinError("");
+    }
+
+    // Stop if any validation fails
+    if (!isValid) return;
 
     const cartItems = await getCartItems();
     if (cartItems.length == 0) return;
@@ -103,11 +137,12 @@ const CheckoutButton = () => {
           {emailError && <p className="text-red-500 text-sm col-span-2">{emailError}</p>}
           <input
             type="text"
-            placeholder="Phone Number"
+            placeholder="Phone Number (+49XXXXXXXXX)"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             className="w-full p-2 border rounded"
           />
+          {phoneError && <p className="text-red-500 text-sm col-span-2">{phoneError}</p>}
           <input
             type="text"
             placeholder="Address"
@@ -122,6 +157,7 @@ const CheckoutButton = () => {
             onChange={(e) => setPincode(e.target.value)}
             className="w-full p-2 border rounded col-span-2"
           />
+          {pinError && <p className="text-red-500 text-sm col-span-2">{pinError}</p>}
         </div>
       </div>
 
