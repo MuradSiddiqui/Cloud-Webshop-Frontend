@@ -44,16 +44,15 @@ const SinglePage = async ({
         </div>
 
         <div className="text-sm my-4">
-          <h3 className="text-xl font-semibold">Shipping Details</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quo
-            minima sit numquam magnam, animi eius iste laudantium labore nobis
-            dolore dicta provident itaque exercitationem expedita! Maxime ab
-            dolore quis facere officiis nihil praesentium. Perspiciatis animi
-            impedit voluptatibus eaque hic, consequatur perferendis blanditiis
-            voluptates, odio officiis cum sit ratione cupiditate
-          </p>
-        </div>
+  <h3 className="text-xl font-semibold">Shipping Details</h3>
+  <ul className="list-disc pl-5">
+    <li><strong>Order Processing:</strong> We process orders within 1–2 business days.</li>
+    <li><strong>Delivery Time:</strong> Most items arrive within 3–7 business days after processing.</li>
+    <li><strong>Special Offer:</strong> Grab up to 50% off on selected products.</li>
+    <li><strong>Product Quality:</strong> Made from 100% genuine wood.</li>
+  </ul>
+</div>
+
       </div>
     </div>
   );
