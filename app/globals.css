@@ -74,3 +74,107 @@ body {
 .container-p {
   @apply px-4 md:px-8 lg:px-16;
 }
+
+
+next-route-announcer + [dir="ltr"] {
+  height: calc(100vh - 52px);
+  min-width: 500px !important;
+}
+
+@media (max-width: 767.98px) {
+  next-route-announcer + [dir="ltr"] {
+    min-width: 100% !important;
+  }
+}
+
+next-route-announcer + [dir="ltr"] > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+next-route-announcer + [dir="ltr"] > div > div{
+  flex-shrink: 0;
+  padding: 0;
+}
+
+next-route-announcer + [dir="ltr"] .flex.flex-col.gap-4.mb-3{
+  height: 58px;
+    overflow: auto;
+    flex-grow: 1;
+}
+
+.data-\[side\=bottom\]\:slide-in-from-top-2[data-side="bottom"] > div > .flex.items-center.justify-end {
+  padding: 0;
+}
+
+.data-\[side\=bottom\]\:slide-in-from-top-2[data-side="bottom"] > div > .flex.items-center.justify-end > div  {
+  padding: 0;
+  gap: 8px;
+}
+
+.data-\[side\=bottom\]\:slide-in-from-top-2[data-side="bottom"] > div > .flex.items-center.justify-end > div > div.p-4 {
+  padding: 4px 8px 10px 8px;
+}
+
+.data-\[side\=bottom\]\:slide-in-from-top-2[data-side="bottom"] > div > .flex.items-center.justify-end  .text-lg.font-semibold.mb-4{
+  margin-bottom: 5px !important;
+}
+
+
+.flex.gap-8.p-4{
+  width: 100%;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.w-1\/2.p-4.border.rounded-lg.shadow-md,
+.w-1\/2.flex.items-center.justify-center,
+.w-1\/2.flex.items-center.justify-center button{
+  width: 100%;
+}
+
+.w-1\/2.p-4.border.rounded-lg.shadow-md input{
+  font-size: 13px;
+  padding: 6px;
+}
+
+.w-1\/2.p-4.border.rounded-lg.shadow-md .grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 9%;
+  text-align: center;
+}
+
+.success-message h1{
+  font-size: 32px;
+  font-weight: 600;
+}
+.success-message .btn-wrapper{
+  margin-top: 12px;
+}
+.success-message .btn-wrapper a{
+  font-size: 14px;
+  padding: 8px 24px;
+  box-shadow: none;
+  outline: none;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.752);
+  color: white;
+  border-radius: 8px;
+  transition: .3s all ease;
+  text-decoration: none;
+}
+
+.success-message .btn-wrapper button:hover{
+  background-color: black;
+}
