@@ -4,7 +4,7 @@ import useCartStore from "../useCartStore";
 import { Button } from "@/components/ui/button";
 
 const BuyButton = ({ data }: { data: any }) => {
-  const stock= data?.stock.quantity
+  const stock= data?.stock?.quantity
   const { cartItems, addToCart, removeFromCart, getCartItems } = useCartStore();
   const handleAddItem = async () => {
     const cart = await getCartItems();
