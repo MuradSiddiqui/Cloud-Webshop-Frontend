@@ -32,23 +32,24 @@ const ShoppingCartDropdown = () => {
           </span>
         )}
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-2 min-w-[200px] mr-2" side="bottom">
+      <DropdownMenuContent className="p-2 min-w-[200px] max-h-max mr-2" side="bottom">
         <DropdownMenuLabel>Shopping Cart</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <div className="flex flex-col gap-4 mb-3">
+        <div className="flexa flex-col gap-4 mb-3">
           {cartData.map((x: any) => {
             return (
-              <div key={x.id} className="flex gap-2">
+              <div key={x.id} className="flex gap-2 mb-2">
+               <div className="h-16 w-16 relative"> 
                 <Image
                   src={
                     x.image_url ||
                     "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hhaXJ8ZW58MHx8MHx8fDA%3D"
                   }
                   alt="Picture"
-                  width={72}
-                  height={96}
+                  fill
                   className="object-cover rounded-md"
                 />
+                </div>
                 <div className="flex flex-col flex-1 justify-between">
                   <div className="flex items-center justify-between gap-4">
                     <p className="text-xs font-semibold max-w-[100px]">
