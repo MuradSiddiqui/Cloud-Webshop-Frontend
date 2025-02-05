@@ -3,7 +3,6 @@ import Header from "./components/Header";
 import ProductsGrid from "./components/ProductsGrid";
 // import { CoverDemo } from "./components/Cover";
 import { Slider } from "./components/Slider";
-import  Success  from "./components/Success";
 import CategoriesCarousel from "./components/CategoriesCarousel";
 import { getCategories, getProducts } from "./hooks";
 
@@ -35,7 +34,6 @@ export default async function Home() {
           <ProductsGrid />
         </div> */}
       </div>
-      <Success />
     </div>
   );
 }
