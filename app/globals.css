@@ -151,6 +151,7 @@ next-route-announcer + [dir="ltr"] .flex.flex-col.gap-4.mb-3{
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-top: 20%;
   height: 9%;
   text-align: center;
 }
