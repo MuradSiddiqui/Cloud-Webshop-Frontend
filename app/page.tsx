@@ -22,7 +22,7 @@ export default async function Home() {
       <Slider />
       <div className="container-p ">
         <div className="mt-20">
-          <h1 className="text-2xl cursor-default">Featured AAAAAAAAAA Products</h1>
+          <h1 className="text-2xl cursor-default">Featured Products</h1>
           <ProductsGrid limit={4} />
         </div>
         <div className="mt-20">
