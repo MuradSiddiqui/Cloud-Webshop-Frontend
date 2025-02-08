@@ -32,18 +32,7 @@ if(data.detail){
           <h3 className="font-semibold text-2xl">${data?.price}</h3>
           <BuyButton data={data} />
         </div>
-        <div className="text-sm">
-          <h3 className="text-xl font-semibold">Additional Details</h3>
-          <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quo
-            minima sit numquam magnam, animi eius iste laudantium labore nobis
-            dolore dicta provident itaque exercitationem expedita! Maxime ab
-            dolore quis facere officiis nihil praesentium. Perspiciatis animi
-            impedit voluptatibus eaque hic, consequatur perferendis blanditiis
-            voluptates, odio officiis cum sit ratione cupiditate
-          {/* {data?.additionaldetail} */}
-          </p>
-        </div>
+       
 
         <div className="text-sm my-4">
   <h3 className="text-xl font-semibold">Shipping Details</h3>
