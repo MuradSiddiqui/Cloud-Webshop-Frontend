@@ -32,56 +32,55 @@ const ShoppingCartDropdown = () => {
           </span>
         )}
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-2 min-w-[200px] max-h-max mr-2" side="bottom">
+      <DropdownMenuContent className="p-2 pb-4 min-w-[200px] max-h-[80vh] mr-2" side="bottom">
         <DropdownMenuLabel>Shopping Cart</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <div className="flexa flex-col gap-4 mb-3">
-          {cartData.map((x: any) => {
-            return (
-              <div key={x.id} className="flex gap-2 mb-2">
-               <div className="h-16 w-16 relative"> 
-                <Image
-                  src={
-                    x.image_url ||
-                    "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hhaXJ8ZW58MHx8MHx8fDA%3D"
-                  }
-                  alt="Picture"
-                  fill
-                  className="object-cover rounded-md"
-                />
-                </div>
-                <div className="flex flex-col flex-1 justify-between">
-                  <div className="flex items-center justify-between gap-4">
-                    <p className="text-xs font-semibold max-w-[100px]">
-                      {x.name}
-                    </p>
-                    <p className="text-xs ">${x.price}</p>
+        <div className="flex flex-col h-full">
+          <div className="flex flex-col gap-4 overflow-y-auto max-h-[50vh] pr-1">
+            {cartData.map((x: any) => {
+              return (
+                <div key={x.id} className="flex gap-2 mb-2">
+                 <div className="h-16 w-16 relative"> 
+                  <Image
+                    src={
+                      x.image_url ||
+                      "https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hhaXJ8ZW58MHx8MHx8fDA%3D"
+                    }
+                    alt="Picture"
+                    fill
+                    className="object-cover rounded-md"
+                  />
                   </div>
+                  <div className="flex flex-col flex-1 justify-between">
+                    <div className="flex items-center justify-between gap-4">
+                      <p className="text-xs font-semibold max-w-[100px]">
+                        {x.name}
+                      </p>
+                      <p className="text-xs ">${x.price}</p>
+                    </div>
 
-                  <div className="flex items-center justify-between">
-                    <p className="text-xs text-gray-500">Qty : {x.quantity}</p>
-                    <RemoveButton id={x.id} />
+                    <div className="flex items-center justify-between">
+                      <p className="text-xs text-gray-500">Qty : {x.quantity}</p>
+                      <RemoveButton id={x.id} />
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-        <div>
-          <div className="flex justify-between font-bold text-sm">
-            <h3>Subtotal</h3>
-            <h3>${totalPrice}</h3>
+              );
+            })}
           </div>
+          <div className="mt-4 pt-2 border-t">
+            <div className="flex justify-between font-bold text-sm">
+              <h3>Subtotal</h3>
+              <h3>${totalPrice}</h3>
+            </div>
 
-          <p className="text-xs text-gray-500 py-2">
-            Shipping and taxes calculated at checkout.
-          </p>
+            <p className="text-xs text-gray-500 py-2">
+              Shipping and taxes calculated at checkout.
+            </p>
 
-          <div className="flex items-center justify-end ">
-            {/* <Button variant={"secondary"} size={"sm"}>
-              View Cart
-            </Button> */}
-            <CheckoutButton />
+            <div className="flex items-center justify-end pb-2">
+              <CheckoutButton />
+            </div>
           </div>
         </div>
       </DropdownMenuContent>
