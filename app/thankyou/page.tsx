@@ -1,11 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { fetchOrderById } from "../hooks";
 import { IOrder } from "../types";
 
-
-const ThankYou = () => {
+const OrderDetails = () => {
   const searchParams = useSearchParams();
   const orderId = searchParams.get("order_id");
   const [order, setOrder] = useState<IOrder | null>(null);
@@ -96,6 +95,14 @@ const ThankYou = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+const ThankYou = () => {
+  return (
+    <Suspense fallback={<div className="flex justify-center items-center min-h-screen">Loading...</div>}>
+      <OrderDetails />
+    </Suspense>
   );
 };
 

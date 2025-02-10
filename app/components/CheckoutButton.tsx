@@ -49,8 +49,6 @@ const CheckoutButton = () => {
       items,
     };
 
-    console.log("Checkout Items : ", bodyData);
-
     try {
       const res = await fetch(
         "https://a7f6x2hcc5.execute-api.eu-central-1.amazonaws.com/dev/api/orders/",
@@ -67,7 +65,6 @@ const CheckoutButton = () => {
       if (!res.ok) {
         console.error("Error:", res.status, responseData);
       } else {
-        console.log("Order Response: ", responseData);
         router.push(responseData.checkout_url);
       }
     } catch (error) {

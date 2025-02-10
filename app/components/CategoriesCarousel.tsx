@@ -11,7 +11,7 @@ import Link from "next/link";
 import React from "react";
 
 const CategoriesCarousel = ({categories} : {categories : []}) => {
-console.log(categories)
+
   return (
     <div className="cursor-pointer ">
       <Carousel

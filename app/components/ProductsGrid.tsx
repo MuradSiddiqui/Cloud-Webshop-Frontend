@@ -10,7 +10,6 @@ const ProductsGrid = async ({
   limit?: number;
 }) => {
   const params = await searchParams;
-  console.log("Params", params);
   let productData;
   if (params) {
     let str = "";
@@ -42,17 +41,12 @@ const ProductsGrid = async ({
       }
       str += "category=" + params.category;
     }
-    console.log("Str : ", str);
     productData = await getProductsByParams(str);
     if (params.Sort) {
       if (params.Sort == "price_low") {
         productData = productData.sort((a: any, b: any) => a.price - b.price);
-        console.log(productData);
-        console.log("Called");
       } else if (params.Sort == "price_high") {
         productData = productData.sort((a: any, b: any) => b.price - a.price);
-        console.log(productData);
-        console.log("Called 2");
       }
     }
   } else productData = await getProducts();

@@ -62,8 +62,6 @@ const Filter = () => {
 
   };
 
-  // console.log("Search Params : ", searchParams);
-
   return (
 
     <div className="flex gap-x-4">
