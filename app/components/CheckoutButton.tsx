@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import useCartStore from "../useCartStore";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { BASE_URL } from "../hooks";
 
 const CheckoutButton = () => {
   const router = useRouter();
@@ -51,7 +52,7 @@ const CheckoutButton = () => {
 
     try {
       const res = await fetch(
-        "https://a7f6x2hcc5.execute-api.eu-central-1.amazonaws.com/dev/api/orders/",
+        `${BASE_URL}/orders/`,
         {
           method: "POST",
           headers: {

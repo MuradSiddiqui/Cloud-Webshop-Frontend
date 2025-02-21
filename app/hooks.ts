@@ -1,6 +1,6 @@
 import { IOrder } from "./types";
 
-const BASE_URL = "https://a7f6x2hcc5.execute-api.eu-central-1.amazonaws.com/dev/api";
+export const BASE_URL = "https://a7f6x2hcc5.execute-api.eu-central-1.amazonaws.com/dev/api";
 
 export const apiCall = async (url: string, method: string, body?: any) => {
     const res = await fetch(`${BASE_URL}${url}`, {
